@@ -2,7 +2,7 @@
 import holidays
 
 def is_holiday(date_col):
-    # Chez Jaffle
+    # Chez Jaffle 11
     french_holidays = holidays.France()
     is_holiday = (date_col in french_holidays)
     return is_holiday
