@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: "Staging model for transactions data"
+    columns:
+      - name: hash
+        description: >
+          The unique identifier for a transaction.
+          this is a string value that represents the hash of the transaction.
+        data_tests:
+          - unique
+          - not_null
