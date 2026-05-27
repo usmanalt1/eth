@@ -36,7 +36,14 @@ models:
         +tags: 
           - 'powerbi'
           - 'report'
-        +schema: marts_schema # schema set here will be schema set in profiles_marts_schema
+        analytics:
+          stablecoin_activity_per_day:
+            +post_hook: 
+              - GRANT USAGE ON DATABASE ETH TO ROLE BA;
+              - GRANT USAGE ON SCHEMA ETH.ETH_SCHEMA TO ROLE BA;
+              - "{{ create_latest_version_view() }}"
+            +grants: 
+              select: ['BA']
     # Config indicated by + and applies to all files under models/example/
     # example:
     #   +materialized: view
